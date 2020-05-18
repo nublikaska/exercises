@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmTestingFinish"
+            type="com.nublikaska.exercises.modules.testing_finish.ui.TestingFinishViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_testing_finish_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:text="Тестирование пройдено!"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_testing_finish_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:text="@{vmTestingFinish.subtitle}"
+            android:textColor="@color/colorGreyDark"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_testing_finish_title"
+            tools:text="Вы ответили правильно на 2 из 7 вопросов" />
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/fragment_main_testing_finish_rating_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:numStars="3"
+            android:padding="50dp"
+            android:rating="@{vmTestingFinish.rating}"
+            app:layout_constraintBottom_toTopOf="@id/fragment_main_testing_preview_yes_btn"
+            app:layout_constraintTop_toBottomOf="@id/fragment_testing_finish_subtitle" />
+
+        <!--        <com.airbnb.lottie.LottieAnimationView-->
+        <!--            android:id="@+id/fragment_main_testing_preview_animation"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:adjustViewBounds="true"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/fragment_testing_finish_title"-->
+        <!--            app:lottie_autoPlay="true"-->
+        <!--            app:lottie_loop="false"-->
+        <!--            app:lottie_rawRes="@raw/testing_finish_lottie_animation" />-->
+
+        <com.nublikaska.exercises.ui_kit.views.button.KitButton
+            android:id="@+id/fragment_main_testing_preview_yes_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:onClick="@{() -> vmTestingFinish.toMainScreen()}"
+            android:text="Вернуться на главную"
+            app:kitButtonType="primary"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="vmTesting"
+            type="com.nublikaska.exercises.modules.testing.vm.TestingViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        app:visibleHideWithGone="@{true}"
+        app:visibleSmooth="@{vmTesting.rulesVisible}"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/fragment_testing_closing_rules_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Правила"
+            app:titleTextColor="@color/colorWhite" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_testing_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorWhite"
+            android:clipToPadding="false"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/fragment_testing_closing_rules_title"
+            app:layout_constraintBottom_toTopOf="@id/fragment_testing_closing_rules_btn_container"
+            app:visibleHideWithGone="@{true}" />
+
+        <FrameLayout
+            android:id="@+id/fragment_testing_closing_rules_btn_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:paddingTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.nublikaska.exercises.ui_kit.views.button.KitButton
+                android:id="@+id/fragment_testing_closing_rules_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                android:onClick="@{() -> vmTesting.onCloseRulesClick()}"
+                android:text="Продолжить"
+                app:kitButtonType="primary"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

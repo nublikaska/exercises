@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="colorGrey">#E1E1E1</color>
+    <color name="colorGreyDark">#B2B2B2</color>
+
+    <color name="colorGreyDarkWithAlpha">#4D121212</color>
+
+    <color name="colorBlack">#121212</color>
+
+    <color name="colorPrimary">#a4c639</color>
+    <color name="colorPrimaryDark">#6f8627</color>
+
+    <color name="colorRed">#D74B4B</color>
+
+    <color name="ripple_light">#1AB2B2B2</color>
+    <color name="ripple_dark">#1A333333</color>
+</resources>

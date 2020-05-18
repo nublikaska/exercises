@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "134525959452",
+    "firebase_url": "https://exercises-4da3b.firebaseio.com",
+    "project_id": "exercises-4da3b",
+    "storage_bucket": "exercises-4da3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134525959452:android:7e1b3dcce611545b9c0ed9",
+        "android_client_info": {
+          "package_name": "com.nublikaska.exercises"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134525959452-u4fpiuk5ahagospkj5n3o6lnfuvou1rh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_j2K133YS0yNe3suYBn8Y8mC2R2n4mRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134525959452-u4fpiuk5ahagospkj5n3o6lnfuvou1rh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

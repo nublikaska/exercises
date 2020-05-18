@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmQuestion"
+            type="com.nublikaska.exercises.modules.testing.question.vm.types.OptionAnswersQuestionViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_test_answer_options_question_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:gravity="start|center"
+            android:text="@{vmQuestion.question.questionText}"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Вопрос какой то бля вопрос?" />
+
+        <ScrollView
+            android:id="@+id/fragment_test_answer_options_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@id/fragment_question_bottom_btn"
+            app:layout_constraintTop_toBottomOf="@id/fragment_test_answer_options_question_title">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fragment_test_answer_options_question_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:adjustViewBounds="true"
+                    app:visible="@{vmQuestion.question.iconResId != null}"
+                    app:srcCompat="@{vmQuestion.question.iconResId}" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/fragment_test_answer_options_question_chip_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="30dp"
+                    app:singleSelection="true" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.nublikaska.exercises.ui_kit.views.button.KitButton
+            android:id="@+id/fragment_question_bottom_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:onClick="@{() -> vmQuestion.toNextQuestion()}"
+            app:kitButtonType="primary"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

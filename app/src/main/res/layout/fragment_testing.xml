@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmTesting"
+            type="com.nublikaska.exercises.modules.testing.vm.TestingViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/fragment_testing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Экран тестирования"
+            app:titleTextColor="@color/colorWhite" />
+
+        <FrameLayout
+            android:id="@+id/fragment_testing_question_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_testing_toolbar" />
+
+        <include
+            layout="@layout/view_rules"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:vmTesting="@{vmTesting}" />
+
+        <include
+            layout="@layout/view_information"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:vmTesting="@{vmTesting}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

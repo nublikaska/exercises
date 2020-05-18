@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.nublikaska.exercises.modules.main.ui.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_nav_testing"
+            app:destination="@id/nav_testing"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="test"
+                app:argType="com.nublikaska.exercises.base.test.Test" />
+        </action>
+
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+
+    </fragment>
+
+    <include
+        android:id="@+id/nav_testing"
+        app:graph="@navigation/nav_testing" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.nublikaska.exercises.modules.profile.ui.ProfileFragment"
+        android:label="ProfileFragment">
+
+        <action
+            android:id="@+id/action_profileFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.nublikaska.exercises.modules.rules.RulesFragment"
+        android:label="RulesFragment" />
+
+</navigation>

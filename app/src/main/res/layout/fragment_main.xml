@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmMain"
+            type="com.nublikaska.exercises.modules.main.vm.MainViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_main_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_anchor="@id/fragment_main_rv"
+            app:layout_anchorGravity="bottom|right|end"
+            app:elevation="0dp"
+            app:pressedTranslationZ="0dp"
+            android:onClick="@{() -> vmMain.showProfileScreen()}"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+            app:srcCompat="@{vmMain.avatarResId}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_main_testing_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            app:visibleSmooth="@{vmMain.needShowTestingPreview}"
+            tools:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/fragment_main_testing_preview_animation"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="false"
+                app:lottie_rawRes="@raw/testing_lottie_animation" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fragment_main_testing_preview_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="300dp"
+                android:layout_marginEnd="25dp"
+                android:gravity="center"
+                android:text="Хотите пройти тестирование?"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintTop_toTopOf="@id/fragment_main_testing_preview_animation" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fragment_main_testing_preview_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:gravity="center"
+                android:text="Оно поможет понять ваш уровень, так будет проще подобрать вам задания. Вы можете пропустить тот шаг"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/fragment_main_testing_preview_title" />
+
+            <com.nublikaska.exercises.ui_kit.views.button.KitButton
+                android:id="@+id/fragment_main_testing_preview_yes_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="@{() -> vmMain.showFirstTesting()}"
+                android:text="Пройти"
+                app:kitButtonType="primary"
+                app:layout_constraintBottom_toTopOf="@id/fragment_main_testing_preview_no_btn" />
+
+            <com.nublikaska.exercises.ui_kit.views.button.KitButton
+                android:id="@+id/fragment_main_testing_preview_no_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="25dp"
+                android:onClick="@{() -> vmMain.closePreview()}"
+                android:text="Позже"
+                app:kitButtonType="secondary"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

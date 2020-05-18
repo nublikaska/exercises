@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.nublikaska.exercises.modules.main.vm.item.MainTestItemClickListener" />
+
+        <variable
+            name="vmMainItem"
+            type="com.nublikaska.exercises.modules.main.vm.item.MainItemViewModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/adafvgasdaasda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:checkable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:checked="@{vmMainItem.test.passed}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/li_main_image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{vmMainItem.test.imageUrl}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:id="@+id/fragment_main_testing_finish_rating_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:isIndicator="true"
+                android:padding="50dp"
+                android:background="@color/colorGreyDarkWithAlpha"
+                android:numStars="3"
+                app:visibleSmooth="@{vmMainItem.ratingVisible}"
+                app:layout_constraintBottom_toBottomOf="@id/li_main_image"
+                app:layout_constraintTop_toTopOf="@id/li_main_image"
+                android:rating="@{vmMainItem.rating}" />
+
+            <ImageView
+                android:id="@+id/li_main_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@{vmMainItem.iconResId}"
+                tools:srcCompat="@drawable/ic_exclamation_point" />
+
+            <LinearLayout
+                android:id="@+id/li_main_texts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="4dp"
+                app:layout_constraintTop_toBottomOf="@id/li_main_image">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@{vmMainItem.test.name}"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    tools:text="Тайтл" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="2"
+                    android:text="@{vmMainItem.test.description}"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    tools:text="Сабтайтл" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/li_main_btn"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:onClick="@{() -> clickListener.onClick(vmMainItem)}"
+                android:text="пройти"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/li_main_texts" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorGreyDarkWithAlpha"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visible="@{!vmMainItem.isAvailable}"
+                tools:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/li_main_image_locked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@id/li_main_image"
+                app:layout_constraintTop_toTopOf="@id/li_main_image"
+                app:srcCompat="@drawable/ic_locked"
+                app:visible="@{!vmMainItem.isAvailable}"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

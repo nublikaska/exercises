@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true">
+        <ripple android:color="@color/ripple_dark">
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/colorPrimary" />
+                    <corners android:radius="@dimen/kit_button_corner_radius" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+    <item android:state_enabled="false">
+        <ripple android:color="@color/ripple_dark">
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/colorGrey" />
+                    <corners android:radius="@dimen/kit_button_corner_radius" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</selector>

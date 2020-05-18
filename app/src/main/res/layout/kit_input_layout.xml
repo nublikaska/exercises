@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/kit_input_layout_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:errorTextColor="@color/colorRed"
+    app:boxStrokeErrorColor="@color/colorRed"
+    app:boxBackgroundColor="@android:color/transparent">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/kit_input_layout_ed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</com.google.android.material.textfield.TextInputLayout>

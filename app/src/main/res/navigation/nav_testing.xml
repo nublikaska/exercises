@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_testing"
+    app:startDestination="@id/testingFragment">
+
+    <fragment
+        android:id="@+id/testingFragment"
+        android:name="com.nublikaska.exercises.modules.testing.ui.TestingFragment"
+        android:label="TestingFragment">
+        <argument
+            android:name="test"
+            app:argType="com.nublikaska.exercises.base.test.Test" />
+    </fragment>
+
+    <action
+        android:id="@+id/to_questionFragment"
+        app:destination="@id/questionFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <nested_fragment
+        android:id="@+id/questionFragment"
+        android:name="com.nublikaska.exercises.modules.testing.question.ui.QuestionFragment"
+        android:label="QuestionFragment">
+        <argument
+            android:name="question"
+            app:argType="com.nublikaska.exercises.base.test.TestQuestion" />
+        <argument
+            android:name="isLastQuestion"
+            app:argType="boolean" />
+    </nested_fragment>
+
+    <action
+        android:id="@+id/to_testingFinishFragment"
+        app:destination="@id/testingFinishFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:popUpTo="@id/nav_testing"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/testingFinishFragment"
+        android:name="com.nublikaska.exercises.modules.testing_finish.ui.TestingFinishFragment"
+        android:label="TestingFinishFragment">
+        <argument
+            android:name="testId"
+            app:argType="string" />
+        <argument
+            android:name="questions"
+            app:argType="com.nublikaska.exercises.modules.testing.question.model.AnsweredQuestion[]" />
+    </fragment>
+
+</navigation>

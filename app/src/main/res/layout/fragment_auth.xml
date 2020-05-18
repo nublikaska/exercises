@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmAuth"
+            type="com.nublikaska.exercises.modules.auth.vm.AuthViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_auth_cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.nublikaska.exercises.ui_kit.views.input.KitInput
+            android:id="@+id/fragment_auth_name_ed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:text="@={vmAuth.userName}"
+            app:hint='@{"Имя"}'
+            app:showError="@{!vmAuth.canContinue}"
+            app:imeOptions="actionDone"
+            app:isSingleLine="true"
+            app:inputType="textPersonName"
+            app:canShowErrorWithFocus="@{false}"
+            app:errorText='@{"Имя не может быть короче 6 символов"}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.nublikaska.exercises.ui_kit.views.button.KitButton
+            android:id="@+id/fragment_auth_continue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:enabled="@{vmAuth.canContinue}"
+            android:text="Далее"
+            android:onClick="@{() -> vmAuth.onLickNext()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_auth_name_ed"
+            app:layout_constraintVertical_bias="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
