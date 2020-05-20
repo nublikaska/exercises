@@ -25,7 +25,13 @@ class RulesFragment : BaseFragment() {
         fragment_rules_rv?.adapter = adapter
         viewModel.rules.observeNotNull(this) {
 
-            adapter.updateItems(it.map(::TestRuleItemViewModel))
+            adapter.updateItems(
+                it.mapIndexed { index, rule ->
+
+                    val markedRule = "${index + 1}.\n\n$rule"
+                    TestRuleItemViewModel(markedRule)
+                }
+            )
         }
     }
 }
